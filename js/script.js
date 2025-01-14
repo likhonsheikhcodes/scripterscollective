@@ -60,38 +60,26 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         // Here you would typically send the form data to a server
-        // For this example, we'll just log it to the console
         console.log('Form submitted');
         contactForm.reset();
         alert('Thank you for your message. We will get back to you soon!');
-    });
-
-    // Simulated payment gateway integration
-    const buyButtons = document.querySelectorAll('.buy-now');
-    buyButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const product = e.target.getAttribute('data-product');
-            const price = e.target.getAttribute('data-price');
-            
-            // Simulated payment process
-            const confirmPurchase = confirm(`Are you sure you want to purchase ${product} for $${price}?`);
-            
-            if (confirmPurchase) {
-                alert(`Thank you for your purchase of ${product}. This is a simulated transaction.`);
-                // Here you would typically integrate with a real payment gateway
-            }
-        });
     });
 
     // ATLOS Payment Integration
     window.atlos = {
         Pay: function(options) {
             console.log('ATLOS Payment initiated with options:', options);
-            // Simulated payment process
+            // Here you would typically integrate with the real ATLOS payment gateway
+            // For this example, we'll use a simulated payment process
             setTimeout(() => {
                 alert(`Payment of $${options.orderAmount} processed successfully with ATLOS. Order ID: ${options.orderId}`);
             }, 2000);
         }
+    };
+
+    // Generate a unique order ID
+    window.generateOrderId = function() {
+        return 'ORDER-' + Math.random().toString(36).substr(2, 9).toUpperCase();
     };
 });
 
