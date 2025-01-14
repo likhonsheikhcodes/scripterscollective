@@ -82,5 +82,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // ATLOS Payment Integration
+    window.atlos = {
+        Pay: function(options) {
+            console.log('ATLOS Payment initiated with options:', options);
+            // Simulated payment process
+            setTimeout(() => {
+                alert(`Payment of $${options.orderAmount} processed successfully with ATLOS. Order ID: ${options.orderId}`);
+            }, 2000);
+        }
+    };
 });
 
